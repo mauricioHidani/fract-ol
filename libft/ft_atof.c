@@ -6,11 +6,11 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:36:21 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/17 13:02:05 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/17 13:25:45 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
 static t_bool	ft_isfrac(char c);
 static void		ft_skip_spaces(char **pvt);
