@@ -6,11 +6,11 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 09:37:53 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/17 09:43:35 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/17 13:35:18 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
 int	ft_strncmp(char *str1, char *str2, size_t n)
 {
