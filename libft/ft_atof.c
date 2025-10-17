@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:36:21 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/17 13:25:45 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/17 13:30:36 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ double	ft_atof(char *str)
 	double	nbr;
 	char	*pvt;
 	int		sign;
-	t_bool	frac_part;
+	int		frac_part;
 
 	if (!str)
 		return (0);
@@ -31,7 +31,7 @@ double	ft_atof(char *str)
 	ft_skip_set_sign(&pvt, &sign);
 	nbr = 0;
 	frac_part = 0;
-	while (*pvt != NULL && (ft_isdigit(*pvt) || ft_isfrac(*pvt)))
+	while (*pvt != 0 && (ft_isdigit(*pvt) || ft_isfrac(*pvt)))
 	{
 		if (frac_part == 0 && ft_isfrac(*pvt))
 			frac_part = 10;
@@ -53,7 +53,7 @@ static t_bool	ft_isfrac(char c)
 
 static void	ft_skip_spaces(char **pvt)
 {
-	while (**pvt != NULL && ft_isspace(**pvt))
+	while (**pvt != 0 && ft_isspace(**pvt))
 		(*pvt)++;
 }
 
