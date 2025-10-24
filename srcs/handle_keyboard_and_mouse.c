@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:22:35 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/24 10:18:30 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/24 10:20:27 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_handle_keyboard(int keycode, void *param)
 {
 	t_fractal *fractal;
-	t_vector2	shift; // todo: test fix movement julia and mandelbrot
+	t_vector2	shift;
 
 	fractal = ft_get_app(param)->fractal;
 	shift.x = (fractal->max.x - fractal->min.x) * SHIFT_FACTOR;
