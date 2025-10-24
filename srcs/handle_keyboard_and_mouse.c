@@ -6,20 +6,19 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:22:35 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/24 10:20:27 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/24 15:30:02 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+static void	ft_calc_shift(double *real, double *imag, int direction);
+
 void	ft_handle_keyboard(int keycode, void *param)
 {
 	t_fractal *fractal;
-	t_vector2	shift;
 
-	fractal = ft_get_app(param)->fractal;
-	shift.x = (fractal->max.x - fractal->min.x) * SHIFT_FACTOR;
-	shift.y = (fractal->max.y - fractal->min.y) * SHIFT_FACTOR;
+	fractal = ((t_app *)param)->fractal;
 	if (keycode == XK_Escape)
 		ft_close_win(param);
 	if (keycode == XK_plus || keycode == XK_KP_Add)
@@ -35,25 +34,13 @@ void	ft_handle_keyboard(int keycode, void *param)
 	else if (keycode == 65107)
 		fractal->color_factor -= 0.01;
 	if (keycode == XK_Left)
-	{
-		fractal->min.x -= shift.x;
-		fractal->max.x -= shift.x;
-	}
+		ft_calc_shift(&fractal->min.x, &fractal->max.x, -1);
 	else if (keycode == XK_Right)
-	{
-		fractal->min.x += shift.x;
-		fractal->max.x += shift.x;
-	}
+		ft_calc_shift(&fractal->min.x, &fractal->max.x, 1);
 	if (keycode == XK_Up)
-	{
-		fractal->min.y -= shift.y;
-		fractal->max.y -= shift.y;
-	}
+		ft_calc_shift(&fractal->min.y, &fractal->max.y, -1);
 	else if (keycode == XK_Down)
-	{
-		fractal->min.y += shift.y;
-		fractal->max.y += shift.y;
-	}
+		ft_calc_shift(&fractal->min.y, &fractal->max.y, 1);
 }
 
 t_bool	ft_handle_mouse(int keycode, t_vector2 mouse_pos, void *param)
@@ -63,7 +50,7 @@ t_bool	ft_handle_mouse(int keycode, t_vector2 mouse_pos, void *param)
 	double		mouse_im;
 	double		zoom;
 
-	frc = ft_get_app(param)->fractal;
+	frc = ((t_app *)param)->fractal;
 	if (keycode == 4)
 		zoom = ZOOM_IN_FACTOR;
 	else if (keycode == 5)
@@ -77,4 +64,13 @@ t_bool	ft_handle_mouse(int keycode, t_vector2 mouse_pos, void *param)
 	frc->min.y = mouse_im + (frc->min.y - mouse_im) * zoom;
 	frc->max.y = mouse_im + (frc->max.y - mouse_im) * zoom;
 	return (TRUE);
+}
+
+static void	ft_calc_shift(double *real, double *imag, int direction)
+{
+	double	shift;
+	
+	shift = (*imag - *real) * SHIFT_FACTOR;
+	*real += (shift * direction);
+	*imag += (shift * direction);
 }
