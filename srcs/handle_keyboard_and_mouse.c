@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:22:35 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/23 20:19:00 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/24 10:18:30 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 void	ft_handle_keyboard(int keycode, void *param)
 {
 	t_fractal *fractal;
+	t_vector2	shift; // todo: test fix movement julia and mandelbrot
 
 	fractal = ft_get_app(param)->fractal;
+	shift.x = (fractal->max.x - fractal->min.x) * SHIFT_FACTOR;
+	shift.y = (fractal->max.y - fractal->min.y) * SHIFT_FACTOR;
 	if (keycode == XK_Escape)
 		ft_close_win(param);
 	if (keycode == XK_plus || keycode == XK_KP_Add)
@@ -32,13 +35,25 @@ void	ft_handle_keyboard(int keycode, void *param)
 	else if (keycode == 65107)
 		fractal->color_factor -= 0.01;
 	if (keycode == XK_Left)
-		ft_shift_proportional(&fractal->min, SHIFT_FACTOR);
+	{
+		fractal->min.x -= shift.x;
+		fractal->max.x -= shift.x;
+	}
 	else if (keycode == XK_Right)
-		ft_shift_proportional(&fractal->min, -SHIFT_FACTOR);
+	{
+		fractal->min.x += shift.x;
+		fractal->max.x += shift.x;
+	}
 	if (keycode == XK_Up)
-		ft_shift_proportional(&fractal->max, SHIFT_FACTOR);
+	{
+		fractal->min.y -= shift.y;
+		fractal->max.y -= shift.y;
+	}
 	else if (keycode == XK_Down)
-		ft_shift_proportional(&fractal->max, -SHIFT_FACTOR);
+	{
+		fractal->min.y += shift.y;
+		fractal->max.y += shift.y;
+	}
 }
 
 t_bool	ft_handle_mouse(int keycode, t_vector2 mouse_pos, void *param)
@@ -55,11 +70,11 @@ t_bool	ft_handle_mouse(int keycode, t_vector2 mouse_pos, void *param)
 		zoom = ZOOM_OUT_FACTOR;
 	else
 		return (FALSE);
-	mouse_re = frc->min.x + mouse_pos.x / WIDTH * (frc->min.y - frc->min.x);
-	mouse_im = frc->max.x + mouse_pos.y / HEIGHT * (frc->max.y - frc->max.x);
+	mouse_re = frc->min.x + mouse_pos.x * (frc->max.x - frc->min.x) / WIDTH;
+	mouse_im = frc->min.y + mouse_pos.y * (frc->max.y - frc->min.y) / HEIGHT;
 	frc->min.x = mouse_re + (frc->min.x - mouse_re) * zoom;
-	frc->min.y = mouse_re + (frc->min.y - mouse_re) * zoom;
-	frc->max.x = mouse_im + (frc->max.x - mouse_im) * zoom;
+	frc->max.x = mouse_re + (frc->max.x - mouse_re) * zoom;
+	frc->min.y = mouse_im + (frc->min.y - mouse_im) * zoom;
 	frc->max.y = mouse_im + (frc->max.y - mouse_im) * zoom;
 	return (TRUE);
 }
