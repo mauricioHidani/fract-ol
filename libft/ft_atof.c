@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:36:21 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/17 13:30:36 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/23 20:57:10 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ double	ft_atof(char *str)
 	ft_skip_set_sign(&pvt, &sign);
 	nbr = 0;
 	frac_part = 0;
-	while (*pvt != 0 && (ft_isdigit(*pvt) || ft_isfrac(*pvt)))
+	while (*pvt != 0)
 	{
 		if (frac_part == 0 && ft_isfrac(*pvt))
 			frac_part = 10;
@@ -74,10 +74,10 @@ static void	ft_set_digit_in_nbr(char cdgt, int *frac_part, double *nbr)
 
 	digit = cdgt - 48;
 	if (*frac_part == 0)
-		*nbr += *nbr * 10 + digit;
+		*nbr += *nbr * 10 + (double)digit;
 	else if (*frac_part > 0)
 	{
-		*nbr += digit / *frac_part;
+		*nbr += (double)digit / *frac_part;
 		*frac_part *= 10;
 	}
 }
