@@ -6,25 +6,35 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 19:36:46 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/24 00:03:51 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/25 13:05:48 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-// todo: issue
 void	ft_help_input(void)
 {
-	ft_putstr_fd("Help start fractol application\n", STDOUT_FILENO);
-	ft_putstr_fd("Examples of entries in the application\n", STDOUT_FILENO);
-	ft_putstr_fd("\tMandelbrot: ./bin/fractol mandelbrot\n", STDOUT_FILENO);
-	ft_putstr_fd("\tJulia: ./bin/fractol julia -0.835 -0.2321\n", STDOUT_FILENO);
-	ft_putstr_fd("\tJulia: ./bin/fractol julia 0.285 0.0\n", STDOUT_FILENO);
-	ft_putstr_fd("\tJulia: ./bin/fractol julia 0.285 0\n", STDOUT_FILENO);
-	ft_putstr_fd("\tBurningship: ./fractol burningship\n", STDOUT_FILENO);
+	ft_putstr_fd("┌────────────────────────────────────────┐\n", STDOUT_FILENO);
+	ft_putstr_fd("| Fract-ol 42school                      |\n", STDOUT_FILENO);
+	ft_putstr_fd("|                                        |\n", STDOUT_FILENO);
+	ft_putstr_fd("| HELP --------------------------------- |\n", STDOUT_FILENO);
+	ft_putstr_fd("| To execute fractals, use the commands  |\n", STDOUT_FILENO);
+	ft_putstr_fd("| -------------------------------------- |\n", STDOUT_FILENO);
+	ft_putstr_fd("| ./bin/fractol mandelbrot               |\n", STDOUT_FILENO);
+	ft_putstr_fd("| ./bin/fractol julia <real> <imag>      |\n", STDOUT_FILENO);
+	ft_putstr_fd("| ./bin/fractol burningship              |\n", STDOUT_FILENO);
+	ft_putstr_fd("└────────────────────────────────────────┘\n", STDOUT_FILENO);
 }
 
-// todo: issue
 void	ft_help_julia(void)
 {
+	ft_putstr_fd("┌────────────────────────────────────────┐\n", STDOUT_FILENO);
+	ft_putstr_fd("| Examples input Julia's fract-ol        |\n", STDOUT_FILENO);
+	ft_putstr_fd("|                                        |\n", STDOUT_FILENO);
+	ft_putstr_fd("| -------------------------------------- |\n", STDOUT_FILENO);
+	ft_putstr_fd("| ./bin/fractol julia 0 0.8              |\n", STDOUT_FILENO);
+	ft_putstr_fd("| ./bin/fractol julia -0.835 -0.2321     |\n", STDOUT_FILENO);
+	ft_putstr_fd("| ./bin/fractol julia -0.835 -0.2321     |\n", STDOUT_FILENO);
+	ft_putstr_fd("| ./bin/fractol julia  0.285  0          |\n", STDOUT_FILENO);
+	ft_putstr_fd("└────────────────────────────────────────┘\n", STDOUT_FILENO);
 }
