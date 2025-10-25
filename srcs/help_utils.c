@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 19:36:46 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/25 13:05:48 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/25 13:38:09 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	ft_help_julia(void)
 	ft_putstr_fd("|                                        |\n", STDOUT_FILENO);
 	ft_putstr_fd("| -------------------------------------- |\n", STDOUT_FILENO);
 	ft_putstr_fd("| ./bin/fractol julia 0 0.8              |\n", STDOUT_FILENO);
-	ft_putstr_fd("| ./bin/fractol julia -0.835 -0.2321     |\n", STDOUT_FILENO);
 	ft_putstr_fd("| ./bin/fractol julia -0.835 -0.2321     |\n", STDOUT_FILENO);
 	ft_putstr_fd("| ./bin/fractol julia  0.285  0          |\n", STDOUT_FILENO);
 	ft_putstr_fd("└────────────────────────────────────────┘\n", STDOUT_FILENO);

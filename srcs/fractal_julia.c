@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:21:46 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/24 14:53:11 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/25 13:39:41 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ static void	ft_setpxl_julia(t_vector2 d, t_graph *grp, t_fractal *frc)
 	}
 	ft_put_pixel(d, color, grp);
 }
-
 
 static int	ft_keyboard_hook(int keycode, void *param)
 {

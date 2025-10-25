@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:22:35 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/24 15:30:02 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/25 13:40:05 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_calc_shift(double *real, double *imag, int direction);
 
 void	ft_handle_keyboard(int keycode, void *param)
 {
-	t_fractal *fractal;
+	t_fractal	*fractal;
 
 	fractal = ((t_app *)param)->fractal;
 	if (keycode == XK_Escape)
@@ -69,7 +69,7 @@ t_bool	ft_handle_mouse(int keycode, t_vector2 mouse_pos, void *param)
 static void	ft_calc_shift(double *real, double *imag, int direction)
 {
 	double	shift;
-	
+
 	shift = (*imag - *real) * SHIFT_FACTOR;
 	*real += (shift * direction);
 	*imag += (shift * direction);
