@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:25:55 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/24 15:30:23 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/25 13:05:07 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <math.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include <stdio.h> // todo: remove, using for tests
 
 # define MANDELBROT_NAME "mandelbrot"
 # define JULIA_NAME "julia"
