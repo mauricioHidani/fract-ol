@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 16:19:52 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/24 14:48:08 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/25 14:26:47 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,7 @@ t_vector2	ft_input_julia_complex(char *c1, char *c2, t_app *app)
 {
 	t_vector2	c;
 
-	ft_nullerr_exit(c1, app);
-	ft_nullerr_exit(c2, app);
-	if (!ft_validade_double(c1) || !ft_validade_double(c2))
+	if (!c1 || !c2 || !ft_validade_double(c1) || !ft_validade_double(c2))
 	{
 		ft_putstr_fd(ERROR_MSG, STDERR_FILENO);
 		ft_help_julia();
