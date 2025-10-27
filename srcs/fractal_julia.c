@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:21:46 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/25 13:39:41 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/26 20:32:16 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_fractal_julia(char **argv)
 	max = ft_new_vector2(2.0, 2.0);
 	fractal = ft_new_fractal(min, max, app);
 	fractal->c = ft_input_julia_complex(argv[2], argv[3], app);
+	app->fractal = fractal;
 	ft_render(app, ft_setpxl_julia);
 	mlx_key_hook(app->graph->win, ft_keyboard_hook, app);
 	mlx_mouse_hook(app->graph->win, ft_mouse_hook, app);

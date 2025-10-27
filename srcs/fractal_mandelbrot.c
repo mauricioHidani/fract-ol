@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 10:21:26 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/25 16:25:09 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/26 20:31:21 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_fractal_mandelbrot(char **argv)
 	min = ft_new_vector2(-2.5, -1.5);
 	imag = ft_new_vector2(1.5, 1.5);
 	fractal = ft_new_fractal(min, imag, app);
+	app->fractal = fractal;
 	ft_render(app, ft_setpxl_mandelbrot);
 	mlx_key_hook(app->graph->win, ft_keyboard_hook, app);
 	mlx_mouse_hook(app->graph->win, ft_mouse_hook, app);

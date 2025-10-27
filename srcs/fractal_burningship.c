@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:09:11 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/24 14:53:11 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/26 20:31:29 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_fractal_burningship(char **argv)
 	real = ft_new_vector2(-2.5, -1.5);
 	imag = ft_new_vector2(1.5, 1.5);
 	fractal = ft_new_fractal(real, imag, app);
+	app->fractal = fractal;
 	ft_render(app, ft_setpxl_ship);
 	mlx_key_hook(app->graph->win, ft_keyboard_hook, app);
 	mlx_mouse_hook(app->graph->win, ft_mouse_hook, app);

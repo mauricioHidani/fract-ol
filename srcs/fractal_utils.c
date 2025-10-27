@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 20:34:16 by mhidani           #+#    #+#             */
-/*   Updated: 2025/10/24 14:53:11 by mhidani          ###   ########.fr       */
+/*   Updated: 2025/10/26 20:31:13 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_fractal	*ft_new_fractal(t_vector2 r, t_vector2 i, t_app *app)
 	fractal->iter = 42;
 	fractal->color_phase = 0.75;
 	fractal->color_factor = 0.02;
-	app->fractal = fractal;
 	return (fractal);
 }
 
