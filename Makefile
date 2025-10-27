@@ -6,7 +6,7 @@
 #    By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/19 18:17:43 by mhidani           #+#    #+#              #
-#    Updated: 2025/10/25 14:20:33 by mhidani          ###   ########.fr        #
+#    Updated: 2025/10/26 22:02:08 by mhidani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LOCAL		= github.com/mauricioHidani
 VERSION		= 1.0.0v
 
 CC			= cc
-CFLAGS		= -g -O3 -Wall -Wextra -Werror
+CFLAGS		= -g -O4 -Wall -Wextra -Werror
 MLX_FLAGS	= -Lmlx -lmlx -lX11 -lXext -lm
 
 FRT_DIR		= fractol/
@@ -38,6 +38,7 @@ OBJS		= $(patsubst $(SRCS_DIR)%.c, $(OBJS_DIR)%.o, $(SRCS))
 MLX_DIR		= mlx/
 LBF_DIR		= libft/
 LBF_SLIB	= $(LIBS_DIR)libft.a
+MLX_SLIB	= $(MLX_DIR)libmlx.a
 
 RESET		:= \033[0m
 ITALIC		:= \033[3m
@@ -53,21 +54,24 @@ C08			:= \033[38;5;219m# Pastel pink
 C09			:= \033[38;5;215m# Soft orange
 C10			:= \033[38;5;208m# Bright orange
 
-all: banner $(OBJS_DIR) $(LIBS_DIR) $(BIN_DIR) libft minilibx $(NAME)
+all: banner $(OBJS_DIR) $(LIBS_DIR) $(BIN_DIR) $(NAME)
 
-libft: 
-	@echo "$(C01)Libft compiled$(RESET)"
-	@$(MAKE) -C $(LBF_DIR) -s
-
-minilibx: 
-	@echo "$(C01)Minilibx compiled$(RESET)"
-	@$(MAKE) -C $(MLX_DIR) -s
-
-$(NAME): 
+$(NAME): $(MLX_SLIB) $(LBF_SLIB) $(OBJS)
 	@$(CC) $(CFLAGS) -I$(INCS_DIR) -I$(LBF_DIR) -I$(MLX_DIR) \
-	$(SRCS_DIR)*.c $(LBF_SLIB) \
+	$(OBJS) $(LBF_SLIB) $(MLX_SLIB) \
 	$(MLX_FLAGS) \
 	-o $(BIN)
+
+$(LBF_SLIB): 
+	@$(MAKE) -C $(LBF_DIR) -s
+	@echo "$(C01)Libft compiled$(RESET)"
+
+$(MLX_SLIB): 
+	@$(MAKE) -C $(MLX_DIR) -s
+	@echo "$(C01)Minilibx compiled$(RESET)"
+
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
+	@$(CC) $(CFLAGS) -I$(INCS_DIR) -I$(LBF_DIR) -I$(MLX_DIR) -c $< -o $@
 
 $(OBJS_DIR): 
 	@mkdir -p $@
