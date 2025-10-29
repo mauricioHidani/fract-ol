@@ -1,4 +1,4 @@
-# Fract-ol
+<img width="828" height="666" alt="image" src="https://github.com/user-attachments/assets/4608bb17-f830-4e35-9551-d95982e40af1" /># Fract-ol
 _42 School (São Paulo)_<br>
 _Saturday, 25 October, 2025_ - _São Paulo, Brazil_<br>
 
@@ -25,3 +25,15 @@ the point is colored according to how quickly it diverged. This produces the
 detailed, colorful, and often psychedelic patterns seen in fractal images. 
 The more iterations performed, the more refined and detailed the edges of the 
 fractal appear.
+
+<img width="828" height="666" alt="image" src="https://github.com/user-attachments/assets/754b0cdb-5124-41b0-a023-3f5773f7c408" />
+_Mandelbrot Fractal_
+
+<img width="828" height="666" alt="image" src="https://github.com/user-attachments/assets/90c46784-5e5c-48f8-80fc-d637e1f09144" />
+_Julia Fractal -0.835 -0.2321_
+
+<img width="828" height="666" alt="image" src="https://github.com/user-attachments/assets/9615046d-e08c-471c-b689-dd6709388f31" />
+_Julia  0.285  0_
+
+<img width="828" height="666" alt="image" src="https://github.com/user-attachments/assets/3c9a03e9-3a10-471d-b67d-044e5b0a2aa2" />
+_Burningship_
